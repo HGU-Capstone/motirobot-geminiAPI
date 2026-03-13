@@ -8,16 +8,16 @@ from dotenv import load_dotenv
 from pynput import keyboard
 from datetime import datetime
 
-# 1. 환경 변수 로드 (.env.local 파일에서 GOOGLE_API_KEY 읽기)
-if os.path.exists(".env.local"):
-    load_dotenv(dotenv_path=".env.local")
+# 1. 환경 변수 로드 (.env 파일에서 GOOGLE_API_KEY 읽기)
+if os.path.exists(".env"):
+    load_dotenv(dotenv_path=".env")
 else:
-    print("⚠️ .env.local 파일을 찾을 수 없습니다. API 키를 확인해주세요.")
+    print("⚠️ .env 파일을 찾을 수 없습니다. API 키를 확인해주세요.")
     sys.exit(1)
 
 api_key = os.getenv("GOOGLE_API_KEY")
 if not api_key:
-    print("⚠️ .env.local에 GOOGLE_API_KEY가 설정되어 있지 않습니다.")
+    print("⚠️ .env에 GOOGLE_API_KEY가 설정되어 있지 않습니다.")
     sys.exit(1)
 
 # 2. Gemini API 설정
